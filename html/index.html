@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Table Data Addition</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <table id="table" data-height="460">
+        <thead>
+            <tr>
+                <th data-field="Model">Model</th>
+                <th data-field="Engine">Engine</th>
+                <th data-field="First year">First year</th>
+                <th data-field="Last year">Last year</th>
+                <th data-field="Notes">Notes</th>
+            </tr>
+        </thead>
+    </table>
+    </div>
+</body>
+</html>
+<script>
+    var $table = $('#table');
+    // var mydata = await readJson();
+    readJson()
+    function readJson() {
+        console.log("jowww")
+        fetch('/html/models.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(json => {
+            this.data = json;
+            $('#table').bootstrapTable({
+                data: json
+            });    })
+        .catch(function () {
+            this.dataError = true;
+        })
+    };
+</script>

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/embed/Embeddedopdracht2/env-cgi.c
+stdio.h
+-
+stdlib.h
+-
+errno.h
+-
+jsmn.h
+/home/pi/embed/Embeddedopdracht2/jsmn.h
+
+/home/pi/embed/Embeddedopdracht2/jsmn.h
+stddef.h
+-
+
